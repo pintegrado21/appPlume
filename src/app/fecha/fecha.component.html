@@ -1,0 +1,46 @@
+<body class="fondo">
+<div class="centratabla">
+	<table class="fechas">
+		<tr>
+			<th colspan="2">Fecha</th>
+		</tr>
+		<tr>
+			<th class="t2"><input
+				#fecha
+                type="date"
+                min="2020-05-02"
+              /></th>
+		</tr>
+		<tr>
+			<th colspan="2"><button
+				(click)="getFechaApi(
+					fecha.value
+				); 
+				fecha.value = '';" class="button"
+			>Buscar</button></th>
+		</tr>
+	</table>
+</div>
+<div class="centratabla">
+	<table class="fechas">
+		<tr>
+			<th>timestamp</th>
+			<th>date</th>
+			<th>NO2</th>
+			<th>pm10</th>
+			<th>pm25</th>
+			<th>latitude</th>
+			<th>longitude</th>
+		</tr>
+		<tr *ngFor="let fecha of fechas; index as a">
+			<td>{{fecha.timestamp}}</td>
+			<td>{{fecha.date | date:'dd-MM-yyyy'}}</td>
+			<td>{{fecha.NO2}}</td>
+			<td>{{fecha.pm10}}</td>
+			<td>{{fecha.pm25}}</td>
+			<td>{{fecha.latitude}}</td>
+			<td>{{fecha.longitude}}</td>
+		</tr>
+	</table>
+</div>
+</body>

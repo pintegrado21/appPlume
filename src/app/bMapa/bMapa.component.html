@@ -1,0 +1,38 @@
+<body>
+<div class="centraTabla">
+	<table>
+		<tr>
+			<th>Fecha:</th>
+			<th class="t2"><input
+				#fechaF
+				type="date"
+				min="2020-05-02"
+			/></th>
+		</tr>
+		<tr>
+			<th class="t1">Contaminante:</th>
+			<th class="t2"><input
+				#fechaCont
+				list="contaminante"
+				/>
+				<datalist id="contaminante">
+					<option value="no2">
+					<option value="pm10">
+					<option value="pm25">
+					<option value="todo"></option>
+				</datalist>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2"><button
+				(click)="getFechaApi2(
+					fechaF.value,
+					fechaCont.value
+				); 
+				fechaF.value = '';
+				fechaCont.value = '';" class="button"
+			>Buscar</button></th>
+		</tr>
+	</table>
+</div>	
+</body>
