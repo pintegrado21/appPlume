@@ -23,7 +23,7 @@ export class AireService {
   }
 
   getFechaApi2(ano: string, mes: string, dia: string, cont: string) {
-    const url = `https://apiapp-plume.herokuapp.com/${ano}&${mes}&${dia}&${cont}`;
+    const url = `https://apiapp-plume.herokuapp.com/getFecha2/${ano}&${mes}&${dia}&${cont}`;
     return this.http.get(url);
   }
 
