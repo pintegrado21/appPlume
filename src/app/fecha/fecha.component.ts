@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Aire } from "../models/aire";
 import { AireService } from "../aire.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-fechas",
   templateUrl: "./fecha.component.html",
-  styleUrls: ["./fecha.component.css"]
+  styleUrls: ["./fecha.component.css"],
+  providers: [AireService],
 })
 export class FechaComponent implements OnInit {
   fechas: Aire[];
@@ -16,7 +18,8 @@ export class FechaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fechaService: AireService,
-  ) {}
+    private router: Router
+    ) { }
 
   getAiresApi() {
   }
@@ -35,6 +38,23 @@ export class FechaComponent implements OnInit {
       } else {
         this.fechasApi = fechas;
         this.fechas = this.fechasApi;
+      }
+      console.log(this.fechasApi)
+    });
+  }
+
+  getFechaApi3(
+    time: string,
+  ) {
+    console.log(time)
+    this.fechaService.getFechaApi3( time ).subscribe(fechas => {
+      if(fechas == "") {
+        alert("No hay datos")
+      } else {
+        this.fechasApi = fechas;
+        this.fechas = this.fechasApi;
+        localStorage.setItem("airesFilter", JSON.stringify(this.fechasApi))
+        this.router.navigate(['/mapa2']);
       }
       console.log(this.fechasApi)
     });

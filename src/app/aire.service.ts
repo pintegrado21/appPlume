@@ -8,6 +8,7 @@ import { Aire2 } from "./models/aire2";
 })
 export class AireService {
   private urlAPI = "https://apiapp-plume.herokuapp.com/";
+  //private urlAPI = "http://localhost:3000/"
   constructor(
     private http: HttpClient
   ) {}
@@ -22,7 +23,12 @@ export class AireService {
   }
 
   getFechaApi2(ano: string, mes: string, dia: string, cont: string) {
-    const url = `https://apiapp-plume.herokuapp.com/getFecha2/${ano}&${mes}&${dia}&${cont}`;
+    const url = `https://apiapp-plume.herokuapp.com/${ano}&${mes}&${dia}&${cont}`;
+    return this.http.get(url);
+  }
+
+  getFechaApi3(time: string) {
+    const url = `https://apiapp-plume.herokuapp.com/getFecha3/${time}`;
     return this.http.get(url);
   }
 

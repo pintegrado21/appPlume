@@ -14,7 +14,9 @@ export class bMapaComponent implements OnInit {
   fechasApi = null;
   fechaTmp: any;
 
-  constructor (private aireService: AireService, private router: Router) { }
+  constructor (
+    private aireService: AireService, 
+    private router: Router) { }
 
   ngOnInit() {
     this.getIni();

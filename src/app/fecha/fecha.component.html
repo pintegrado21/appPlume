@@ -24,22 +24,24 @@
 <div class="centratabla">
 	<table class="fechas">
 		<tr>
-			<th>timestamp</th>
-			<th>date</th>
+			<th>Hora</th>
 			<th>NO2</th>
-			<th>pm10</th>
-			<th>pm25</th>
-			<th>latitude</th>
-			<th>longitude</th>
+			<th>PM10</th>
+			<th>PM25</th>
+			<th>Mapa</th>
 		</tr>
 		<tr *ngFor="let fecha of fechas; index as a">
-			<td>{{fecha.timestamp}}</td>
-			<td>{{fecha.date | date:'dd-MM-yyyy'}}</td>
+			<td>{{fecha.date | date:'HH:mm'}}</td>
 			<td>{{fecha.NO2}}</td>
 			<td>{{fecha.pm10}}</td>
 			<td>{{fecha.pm25}}</td>
-			<td>{{fecha.latitude}}</td>
-			<td>{{fecha.longitude}}</td>
+			<td>
+				<button (click)="getFechaApi3(
+					fecha.timestamp
+				);
+				fecha.timestamp = '';" class="button"
+				>O</button>
+			</td>
 		</tr>
 	</table>
 </div>
